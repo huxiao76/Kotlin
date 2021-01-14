@@ -1,10 +1,12 @@
+package com.function
+
 fun main() {
     printMessage("Hello");
-    printMessageWithPrefix("Hello","Log");
+    printMessageWithPrefix("Hello", "Log");
     printMessageWithPrefix("Hello");
     printMessageWithPrefix(prefix = "Log", message = "Hello");
-    println(sum(1,2));
-    println(multiply(2,4));
+    println(sum(1, 2));
+    println(multiply(2, 4));
 }
 
 fun printMessage(message: String): Unit {
