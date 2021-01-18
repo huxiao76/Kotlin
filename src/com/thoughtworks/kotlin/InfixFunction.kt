@@ -1,4 +1,4 @@
-package infixFunction
+package com.thoughtworks.kotlin
 
 /**
  * Functions marked with the infix keyword can also be called using the infix notation (omitting the dot and the

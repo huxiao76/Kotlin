@@ -1,4 +1,4 @@
-package com.function
+package com.thoughtworks.kotlin
 
 fun main() {
     printMessage("Hello");
@@ -8,9 +8,9 @@ fun main() {
     println(sum(1, 2));
     println(multiply(2, 4));
 
-    printMessage(1,2);
+    printMessage(1, 2);
 }
-
+// 不返回值时可以写：Unit，或者省略
 fun printMessage(message: String): Unit {
     println(message);
 }

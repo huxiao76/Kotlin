@@ -1,4 +1,4 @@
-package infixFunction
+package com.thoughtworks.kotlin
 
 class Person(val name: String) {
     val likesPeople = mutableListOf<Person>();
