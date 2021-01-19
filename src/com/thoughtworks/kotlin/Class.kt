@@ -59,4 +59,10 @@ fun main() {
     myClass.printInfo()
     var student = Student("zhangsan", 20, "beijing")
     student.printInfo()
+
+    var student3 = Student3()
+    println(student3.username)
+
+    var student4 = Student3("lisi")
+    println(student4.username)
 }
