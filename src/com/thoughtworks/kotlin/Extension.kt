@@ -14,6 +14,11 @@ fun main() {
     println(extensionTest.multiply(2, 4))
     println("--------------")
     myPrint(BB()) // a
+
+    println("----------")
+
+    var cc = CC()
+    cc.foo(1)
 }
 // 扩展函数的解析是静态的
 /**
@@ -34,4 +39,22 @@ fun myPrint(aa: AA) {
     println(aa.a())
 }
 
+class CC {
+    fun foo() {
+        println("member")
+    }
+}
+
+// 支持重载
+fun CC.foo(i: Int) {
+    println("member2")
+}
+
+// 可空类型的扩展，在只用的时候不用空检查，而在声明的时候进行空检查
+fun Any?.toString(): String {
+    if (null == this) {
+        return "null"
+    }
+    return toString()
+}
 
