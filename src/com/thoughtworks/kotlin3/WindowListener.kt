@@ -36,6 +36,11 @@ fun main() {
 
     })
 
+    /*
+        如果对象是Java函数式接口的一个实例（即只拥有一个抽象方法的接口）
+        那么可以通过Lambda表达式来调用，其中Lambda表达式前面加上接口的类型
+     */
+
     jButton.addActionListener { println("button prass") }
 
     jFrame.add(jButton)
