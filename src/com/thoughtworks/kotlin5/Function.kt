@@ -1,5 +1,7 @@
 package com.thoughtworks.kotlin5
 
+import jdk.internal.joptsimple.internal.Strings
+
 
 // 默认值（default arguments）
 
@@ -24,7 +26,21 @@ fun main() {
 
     println("-------")
     test3(2, 3, ::test)
+
+    println("---------")
+    test4(1, 2, 3, 4)
+    test4(a = 2, b = 2, c = 3, d = 4)
+    test4(a = 1, d = 5)
+
+    println("------")
+    // 可变参数可以借助于spread operator以具名参数的形式传递
+    test5(strings = *arrayOf("a", "b", "c"))
+    test5(strings = *arrayOf("a"))
 }
+
+/*
+    在kotlin中调用Java方法时不能使用具名参数语法，因为Java字节码并不总是会保留方法参数名信息
+ */
 
 /*
     对于重写的方法来说，子类所拥有的重写方法会使用与父类相同的默认参数值。
@@ -51,4 +67,22 @@ fun test2(a: Int = 1, b: Int) = println(a - b)
  */
 fun test3(a: Int = 1, b: Int = 2, compute: (x: Int, y: Int) -> Unit) {
     compute(a, b)
+}
+
+/*
+    具名参数
+
+    在调用函数时，函数参数可以是具名的。
+    当一个函数有大量参数或是一些参数拥有默认值时，这种调用方式是比较方便的
+ */
+/*
+    在调用函数时，如果同时使用了位置参数与具名参数，那么所有的位置参数都必须要位于第一个具名参数之前
+    比如说，foo(1, x = 2)是允许的，不过foo（x = 1, 2）是不允许的
+ */
+
+fun test4(a: Int, b: Int = 1, c: Int = 2, d: Int) = println(a + b + c + d)
+
+fun test5(vararg strings: String) {
+    println(strings.javaClass)
+    strings.forEach { println(it) }
 }
