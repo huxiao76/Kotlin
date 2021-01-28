@@ -1,6 +1,6 @@
 package com.thoughtworks.kotlin5
 
-import jdk.internal.joptsimple.internal.Strings
+import kotlin.reflect.KFunction2
 
 
 // 默认值（default arguments）
@@ -65,7 +65,7 @@ fun test2(a: Int = 1, b: Int) = println(a - b)
     如果函数的最后一个参数是lambda表达式，而且在调用时是位于圆括号之外
     那么就可以不指定lambda表达式的具名参数名
  */
-fun test3(a: Int = 1, b: Int = 2, compute: (x: Int, y: Int) -> Unit) {
+fun test3(a: Int = 1, b: Int = 2, compute: KFunction2<@ParameterName(name = "a") Int, @ParameterName(name = "b") Int, kotlin.Unit>) {
     compute(a, b)
 }
 
