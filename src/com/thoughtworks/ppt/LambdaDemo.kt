@@ -1,6 +1,7 @@
 package com.thoughtworks.ppt
 
-class Worker(private val strategy: () -> Unit) {
+
+class WorkerKotlin(private val strategy: () -> Unit) {
     fun work() {
         println("START")
         strategy.invoke()
@@ -9,13 +10,15 @@ class Worker(private val strategy: () -> Unit) {
 }
 
 fun main() {
-    val worker1 = Worker {
+
+    val worker1 = WorkerKotlin {
         println("Do A Strategy")
     }
+
     val bStrategy = {
         println("Do B Strategy")
     }
-    val worker2 = Worker(bStrategy)
+    val worker2 = WorkerKotlin(bStrategy)
     worker1.work()
     worker2.work()
 }
